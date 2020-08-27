@@ -1,19 +1,11 @@
 version: 2
 
 sources:
-  - name: raw_jaffle_shop
+  - name: public
     description: A replica of the postgres database used to power the jaffle_shop app.
 
-    freshness:
-      warn_after:
-        period: hour
-        count: 12
-      error_after:
-        period: hour
-        count: 24
-
     tables:
-      - name: customers
+      - name: raw_customers
         loaded_at_field: _elt_updated_at
         columns:
           - name: id
@@ -22,7 +14,7 @@ sources:
               - unique
               - not_null
 
-      - name: orders
+      - name: raw_orders
         loaded_at_field: _elt_updated_at
         columns:
           - name: id
@@ -39,7 +31,7 @@ sources:
               - accepted_values:
                   values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
-      - name: payments
+      - name: raw_payments
         loaded_at_field: _elt_updated_at
         columns:
           - name: id

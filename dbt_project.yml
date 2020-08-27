@@ -1,4 +1,5 @@
 
+
 name: 'jaffle_shop'
 version: '0.1'
 require-dbt-version: ">=0.13.0"
@@ -18,5 +19,6 @@ clean-targets:
 models:
   jaffle_shop:
       materialized: table
+      transient: false
       staging:
         materialized: view

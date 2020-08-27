@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('raw_jaffle_shop', 'customers') }}
+    select * from {{ source('public', 'raw_customers') }}
         where true
 
 ),
